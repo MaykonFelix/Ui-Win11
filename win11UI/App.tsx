@@ -1,4 +1,4 @@
-import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { ThemeProvider, createTheme, styled } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import Home from './src';
 
@@ -14,10 +14,10 @@ const colors = {
 const theme = createTheme({
   palette: {
     mode: "dark",
-    primary: { ...colors },
-    background: { ...colors },
+    primary: {...colors},
+    background: {...colors},
   }
-})
+});
 
 function App() {
 
