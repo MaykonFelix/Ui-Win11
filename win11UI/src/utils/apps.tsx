@@ -1,5 +1,5 @@
 // System
-import Battery from "/system/Battery.ico";
+import Battery from "../../public/icons/system/Battery.ico";
 import Calendar from "../../public/icons/system/Calendar.ico";
 import Folder from "../../public/icons/system/Folder.ico";
 import Windows from "../../public/icons/system/Windows.ico";

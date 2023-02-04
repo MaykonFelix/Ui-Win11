@@ -1,7 +1,6 @@
 import { Box } from "@mui/material";
-import React from "react";
-import Apps from "./containers/Apps";
-import MenuBar from "./containers/MenuBar";
+import Apps from "../containers/Apps";
+import MenuBar from "../containers/MenuBar";
 import Background from '/background.jpg'
 
 const Home = () => {

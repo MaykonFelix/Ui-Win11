@@ -1,23 +1,39 @@
-import { Box } from "@mui/material";
-import { Stack } from "@mui/system";
-import React from "react";
+import React from 'react'
+import { Box, Stack } from "@mui/material";
+import MenuButton from "../../components/MenuButton";
+import { menuIcon, cortanaIcon, taskbarApps } from "../../utils/apps";
+
 
 const MenuBar = () => {
     return (
         <Box
             sx={(theme) => ({
                 width: "100vw",
-                height: 50,
-                backgroundColor: `${theme.palette.background.grey}D9`,
+                height: 30,
                 backdropFilter: "blur(2px)",
             })}
         >
             <Stack
-                direction='row'
-                aligntItems="center"
-                spacing={0.5}
-                sx={{ height: "100%", pl: 1.8 }}
-            ></Stack>
+                direction="row"
+                alignItems="center"
+                spacing={0.2}
+                sx={{ height: "100%", pl: 1.5 }}
+            >
+                <MenuButton onClick={console.log}>
+                    <img src={menuIcon} alt="Start" style={{ height: 18 }} />
+                </MenuButton>
+
+                <MenuButton>
+                    <img src={cortanaIcon} alt="Cortana" style={{ height: 20 }} />
+                </MenuButton>
+                
+                {taskbarApps.map((app, i) => (
+                   <MenuButton key={i}>
+                     <img src={app.icon} alt={app.name} style={{ height: 24 }} />
+                   </MenuButton>
+                ))}
+
+            </Stack>
         </Box>
     )
 }

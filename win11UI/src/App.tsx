@@ -1,7 +1,6 @@
-import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { ThemeProvider, createTheme, styled } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
-import Home from './src';
-
+import Home from './pages/'
 
 const colors = {
   main: "#0078d4",
@@ -16,7 +15,7 @@ const theme = createTheme({
   palette: {
     mode: "dark",
     primary: { ...colors },
-    background: { ...colors },
+   /*  background: { ...colors }, */
   }
 });
 
