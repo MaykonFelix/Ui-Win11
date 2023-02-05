@@ -6,7 +6,7 @@ const MenuButton = ({ children, ...props }) => {
         <Button
             sx={{
                 height: 30,
-                width: 30,
+                minWidth: 30,
                 '&:hover': {
                     backgroundColor: "rgba(255.255.255.0.1",
                 }
