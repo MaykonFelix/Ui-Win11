@@ -2,11 +2,14 @@ import React, { useState } from 'react'
 import { Box, Stack } from "@mui/material";
 import MenuButton from "../../components/MenuButton";
 import { menuIcon, cortanaIcon, taskbarApps } from "../../utils/apps";
+import Menu from '../Menu';
 
 
 const MenuBar = () => {
 
     const [anchorEl, setAnchorEl] = useState(null)
+    const open = Boolean(anchorEl);
+
     const handleClick = (e) => {
         setAnchorEl(e.currentTarget);
     };
@@ -44,6 +47,8 @@ const MenuBar = () => {
                 ))}
 
             </Stack>
+
+            <Menu open={open} anchorEl={anchorEl} handleClose={handleClose} />
         </Box>
     )
 }
