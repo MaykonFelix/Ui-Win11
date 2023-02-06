@@ -1,6 +1,7 @@
 import { Box, Avatar, Button, IconButton, Popover, Stack, Typography, useTheme, TextField, InputAdornment } from "@mui/material";
 import PowerSettingsNewIcon from '@mui/icons-material/PowerSettingsNew';
 import SearchIcon from '@mui/icons-material/Search';
+import { pinnedApps } from "../../utils/apps";
 
 
 const Menu = ({ open, anchorEl, handleClose }) => {
@@ -55,7 +56,7 @@ const Menu = ({ open, anchorEl, handleClose }) => {
                     borderTopRightRadius: 5,
                 }}>
 
-                {/*Secarch */}
+                {/*Search */}
                 <TextField
                     variant="filled"
                     fullWidth
@@ -81,11 +82,46 @@ const Menu = ({ open, anchorEl, handleClose }) => {
 
                 {/*Pinned Text */}
                 <MenuLabel title='Pinned' buttonText="All Apps >" />
+
                 {/*Pinned Apps */}
+                <Stack
+                    direction="row"
+                    flexWrap="wrap"
+                    justifyContent="flex-start"
+                    sx={{ mb: 3 }}
+                >
+                    {pinnedApps.map((app, i) => (
+                        <Button
+                            key={app.name}
+                            sx={{
+                                height: 85,
+                                minWidth: 98,
+                                width: 98,
+                                color: "#fff",
+                                textTransform: 'inherit',
+                                "&:hover": {
+                                    backgroundColor: "rgba(255,255,255,0.1",
+                                }
+                            }}>
+                            <Stack
+                                spacing={1}
+                                direction="column"
+                                alignItems="center"
+                                justifyContent="center"
+                            >
+                                <img src={app.icon} alt={app.name} style={{ height: 30 }} />
+                                <Typography variant="caption">{app.name}</Typography>
+
+                            </Stack>
+                        </Button>
+                    ))}</Stack>
 
                 {/*Recommended Text*/}
+                <MenuLabel title='Recommened' buttonText="More >" />
 
                 {/*Recommedend Apps*/}
+
+
             </Box>
 
             {/* User */}
@@ -94,8 +130,7 @@ const Menu = ({ open, anchorEl, handleClose }) => {
                 sx={{
                     px: 3,
                     height: 60,
-                    /* backgroundColor: "rgba(255, 255, 255, 0.1)", */
-                    backgroundColor: "#232425",
+                    backgroundColor: "#2324258b",
                     border: "1px solid #525252",
                     borderTop: "none",
                     borderBottomLeftRadius: 5,
@@ -111,9 +146,9 @@ const Menu = ({ open, anchorEl, handleClose }) => {
                     sx={{ px: { xs: 2, lg: 4 } }}
                 >
                     <Button
-                        direction="row"
+                    /*     direction="row"
                         spacing={1}
-                        alignContent="center"
+                        alignContent="center"  */
                         sx={{
                             textTransform: "inherit",
                             color: "#fff",
