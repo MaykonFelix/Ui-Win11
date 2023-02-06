@@ -1,10 +1,37 @@
 import { Box, Avatar, Button, IconButton, Popover, Stack, Typography, useTheme, TextField, InputAdornment } from "@mui/material";
 import PowerSettingsNewIcon from '@mui/icons-material/PowerSettingsNew';
+import SearchIcon from '@mui/icons-material/Search';
 
 
 const Menu = ({ open, anchorEl, handleClose }) => {
-
     const theme = useTheme()
+
+    const MenuLabel = ({ title, buttonText }) => (
+        <Stack
+            direction="row"
+            alignItems="center"
+            justifyContent='space-between'
+            sx={{ px: { xs: 2, lg: 4 }, mb: 2 }}
+        >
+            <Typography variant="body2">{title}</Typography>
+
+            <Button
+                size="small"
+                variant="contained"
+                disableElevation
+                sx={{
+                    cursor: "wait",
+                    ...theme.typography.caption,
+                    textTransform: "inherit",
+                    backgroundColor: "rgba(255, 255, 255, 0.1)",
+                    "&:hover": {
+                        backgroundColor: "rgba(255, 255, 255, 0.2"
+                    },
+
+                }}>{buttonText}</Button>
+        </Stack>
+    );
+
     const MenuContent = () =>
         <Stack
             sx={{
@@ -29,17 +56,31 @@ const Menu = ({ open, anchorEl, handleClose }) => {
                 }}>
 
                 {/*Secarch */}
-                <TextField 
-                variant="filled" 
-                fullWidth 
-                size="small" 
-                hiddenLabel 
-                InputProps={{ startAdornment: <InputAdornment ></InputAdornment>
+                <TextField
+                    variant="filled"
+                    fullWidth
+                    size="small"
+                    hiddenLabel
+                    placeholder="Type here, but it does not work...😅"
 
-                }} />
+                    sx={{
+                        pb: { xs: 2, lg: 4 },
+                        "& .MuiFilledInput-root": {
+                            background: "rgba(0,0,0,0.3)",
+                        }
+                    }}
+                    InputProps={{
+                        startAdornment: (
+                            <InputAdornment position="start">
+                                <SearchIcon fontSize="small" />
+                            </InputAdornment>
+                        ),
+
+
+                    }} />
 
                 {/*Pinned Text */}
-
+                <MenuLabel title='Pinned' buttonText="All Apps >" />
                 {/*Pinned Apps */}
 
                 {/*Recommended Text*/}
