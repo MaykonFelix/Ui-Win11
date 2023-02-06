@@ -1,7 +1,19 @@
-import { Box, Avatar, Button, IconButton, Popover, Stack, Typography, useTheme, TextField, InputAdornment } from "@mui/material";
+import {
+    Box,
+    Avatar,
+    Button,
+    IconButton,
+    Popover,
+    Stack,
+    Typography,
+    useTheme,
+    TextField,
+    InputAdornment,
+    Grid
+} from "@mui/material";
 import PowerSettingsNewIcon from '@mui/icons-material/PowerSettingsNew';
 import SearchIcon from '@mui/icons-material/Search';
-import { pinnedApps } from "../../utils/apps";
+import { pinnedApps, recommendedApps } from "../../utils/apps";
 
 
 const Menu = ({ open, anchorEl, handleClose }) => {
@@ -21,12 +33,12 @@ const Menu = ({ open, anchorEl, handleClose }) => {
                 variant="contained"
                 disableElevation
                 sx={{
-                    cursor: "wait",
+                    cursor: "not-allowed",
                     ...theme.typography.caption,
                     textTransform: "inherit",
                     backgroundColor: "rgba(255, 255, 255, 0.1)",
                     "&:hover": {
-                        backgroundColor: "rgba(255, 255, 255, 0.2"
+                        backgroundColor: "rgba(255, 255, 255, 0.2)"
                     },
 
                 }}>{buttonText}</Button>
@@ -100,7 +112,7 @@ const Menu = ({ open, anchorEl, handleClose }) => {
                                 color: "#fff",
                                 textTransform: 'inherit',
                                 "&:hover": {
-                                    backgroundColor: "rgba(255,255,255,0.1",
+                                    backgroundColor: "rgba(255,255,255,0.2)",
                                 }
                             }}>
                             <Stack
@@ -120,8 +132,51 @@ const Menu = ({ open, anchorEl, handleClose }) => {
                 <MenuLabel title='Recommened' buttonText="More >" />
 
                 {/*Recommedend Apps*/}
+                <Grid
+                    container
+                    direction="row"
+                    flexWrap='wrap'
+                    justifyContent='flex-start'
+                    spacing={2}
+                    sx={{ px: 2 }}
+                >
 
+                    {recommendedApps.map((app, i) => (
+                        <Grid item key={app.name} xs={12} lg={6}>
+                            <Button
+                                fullWidth
+                                sx={{
+                                    py: 1,
+                                    px: 2,
+                                    justifyContent: 'flex-start',
+                                    textTrasform: 'inherit',
+                                    "&:hover": {
+                                        backgroundColor: "rgba(255, 255, 255, 0.1)",
+                                    }
+                                }}
+                            >
+                                <Stack direction='row' alignItems='center' spacing={2}>
+                                    <img src={app.icon} alt={app.name} style={{ height: 30 }} />
 
+                                    <Stack alignItems='flex-start' >
+                                        <Typography
+                                            variant='caption'
+                                            sx={{ color: "#fff" }}
+                                        >
+                                            {app.name}
+                                        </Typography>
+                                        <Typography
+                                            variant='caption'
+                                            sx={{ color: theme.palette.primary.light }}
+                                        >
+                                            Recently Added
+                                        </Typography>
+                                    </Stack>
+                                </Stack>
+                            </Button>
+                        </Grid>
+                    ))}
+                </Grid>
             </Box>
 
             {/* User */}
@@ -146,9 +201,9 @@ const Menu = ({ open, anchorEl, handleClose }) => {
                     sx={{ px: { xs: 2, lg: 4 } }}
                 >
                     <Button
-                    /*     direction="row"
-                        spacing={1}
-                        alignContent="center"  */
+                        /*     direction="row"
+                            spacing={1}
+                            alignContent="center"  */
                         sx={{
                             textTransform: "inherit",
                             color: "#fff",
