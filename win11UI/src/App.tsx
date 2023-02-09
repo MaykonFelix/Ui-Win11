@@ -1,6 +1,8 @@
 import { ThemeProvider, createTheme, styled } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import Home from './pages/'
+import { DndProvider } from 'react-dnd/dist/core';
+import { HTML5Backend } from 'react-dnd-html5-backend';
 
 const colors = {
   main: "#0078d4",
@@ -15,19 +17,20 @@ const theme = createTheme({
   palette: {
     mode: "dark",
     primary: { ...colors },
-   /*  background: { ...colors }, */
+    /*  background: { ...colors }, */
   }
 });
 
 function App() {
 
   return (
-    <>
+    <DndProvider backend={HTML5Backend}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <Home />
       </ThemeProvider>
-    </>
+    </DndProvider>
+
   )
 }
 
