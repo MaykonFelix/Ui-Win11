@@ -10,9 +10,9 @@ const MenuButton = ({ children, ...props }) => {
                 '&:hover': {
                     backgroundColor: "rgba(255.255.255.0.1",
                 }
-            }} 
+            }}
             {...props}
-            >{children}
+        >{children}
         </Button >
     )
 

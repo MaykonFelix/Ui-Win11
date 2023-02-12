@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { Box, Stack } from "@mui/material";
 import MenuButton from "../../components/MenuButton";
 import { menuIcon, cortanaIcon, taskbarApps } from "../../utils/apps";
