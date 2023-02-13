@@ -30,7 +30,6 @@ function App() {
         <Home />
       </ThemeProvider>
     </DndProvider>
-
   )
 }
 
