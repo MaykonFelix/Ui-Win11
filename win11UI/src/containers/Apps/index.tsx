@@ -1,11 +1,13 @@
 import { Box } from "@mui/material"
 import { useCallback, useEffect, useState } from "react"
 import { useDrop } from "react-dnd";
+import AppButton from "../../components/AppButton";
 import { desktopApps } from "../../utils/apps";
 
 
 const Apps = () => {
-  const [app, setApps] = useState({});
+  const [apps, setApps] = useState({});
+
 
   useEffect(() => {
     const _apps = {};
@@ -22,8 +24,8 @@ const Apps = () => {
     setApps(_apps);
   }, []);
 
-  const moveApp = useCallback(
-    (id, left, top) => {
+  const moveBox = useCallback(
+    (id: number, left: string, top: string) => {
       setApps((old) => {
         const _apps = { ...old };
         _apps[id] = { ..._apps[id], left, top };
