@@ -12,7 +12,6 @@ const colors = {
   darkgrey: "#232425",
 };
 
-
 const theme = createTheme({
   palette: {
     mode: "dark",
