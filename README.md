@@ -27,8 +27,6 @@ This project was developed with the following tech:
 + `React DnD`
 + `MUI`
 
-## Init
-
 ### Client
 
   1º `$ cd win11UI`
