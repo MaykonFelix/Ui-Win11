@@ -5,6 +5,8 @@ import AppButton from "../../components/AppButton";
 import { desktopApps } from "../../utils/apps";
 
 
+
+
 const Apps = () => {
   const [apps, setApps] = useState({});
 
@@ -40,7 +42,7 @@ const Apps = () => {
   const [, drop] = useDrop(
     () => ({
       accept: "box",
-      drop(item, monitor) {
+      drop(item: string, monitor) {
         const delta = monitor.getDifferenceFromInitialOffset();
         const left = Math.round(item.left + delta.x);
         const top = Math.round(item.top + delta.y);

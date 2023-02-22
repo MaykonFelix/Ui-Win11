@@ -16,10 +16,23 @@ import SearchIcon from '@mui/icons-material/Search';
 import { pinnedApps, recommendedApps } from "../../utils/apps";
 
 
-const Menu = ({ open, anchorEl, handleClose }) => {
+interface propsOpen {
+    open: string;
+    anchorEl: string;
+    handleClose: string;
+}
+
+interface propsTitle {
+    title: string;
+    buttonText: string;
+}
+
+
+
+const Menu = ({ open, anchorEl, handleClose }: propsOpen) => {
     const theme = useTheme()
 
-    const MenuLabel = ({ title, buttonText }) => (
+    const MenuLabel = ({ title, buttonText }: propsTitle) => (
         <Stack
             direction="row"
             alignItems="center"
