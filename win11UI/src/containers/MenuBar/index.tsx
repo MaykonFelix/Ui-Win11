@@ -1,56 +1,55 @@
-import { useState } from 'react'
+import { useState } from "react";
 import { Box, Stack } from "@mui/material";
 import MenuButton from "../../components/MenuButton";
 import { menuIcon, cortanaIcon, taskbarApps } from "../../utils/apps";
-import Menu from '../Menu';
-
+import Menu from "../Menu";
 
 const MenuBar = () => {
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
 
-    const [anchorEl, setAnchorEl] = useState(null)
-    const open = Boolean(anchorEl);
+  const handleClick = (e: any) => {
+    setAnchorEl(e.currentTarget);
+  };
 
-    const handleClick = (e) => {
-        setAnchorEl(e.currentTarget);
-    };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
-    const handleClose = () => {
-        setAnchorEl(null);
-    }
+  return (
+    <Box
+      sx={(theme) => ({
+        width: "100vw",
+        height: 30,
+        backdropFilter: "blur(2px)",
+        display: "flex",
+        justifyContent: "center",
+      })}
+    >
+      <Stack
+        direction="row"
+        alignItems="center"
+        spacing={0.2}
+        sx={{ height: "100%", pl: 1.5 }}
+      >
+        <MenuButton onClick={handleClick}>
+          <img src={menuIcon} alt="Start" style={{ height: 18 }} />
+        </MenuButton>
 
-    return (
-        <Box
-            sx={(theme) => ({
-                width: "100vw",
-                height: 30,
-                backdropFilter: "blur(2px)",
-            })}
-        >
-            <Stack
-                direction="row"
-                alignItems="center"
-                spacing={0.2}
-                sx={{ height: "100%", pl: 1.5 }}
-            >
-                <MenuButton onClick={handleClick}>
-                    <img src={menuIcon} alt="Start" style={{ height: 18 }} />
-                </MenuButton>
+        <MenuButton>
+          <img src={cortanaIcon} alt="Cortana" style={{ height: 20 }} />
+        </MenuButton>
 
-                <MenuButton>
-                    <img src={cortanaIcon} alt="Cortana" style={{ height: 20 }} />
-                </MenuButton>
+        {taskbarApps.map((app, i) => (
+          <MenuButton key={i}>
+            <img src={app.icon} alt={app.name} style={{ height: 24 }} />
+          </MenuButton>
+        ))}
+      </Stack>
 
-                {taskbarApps.map((app, i) => (
-                    <MenuButton key={i}>
-                        <img src={app.icon} alt={app.name} style={{ height: 24 }} />
-                    </MenuButton>
-                ))}
+      <Menu open={open} anchorEl={anchorEl} handleClose={handleClose} />
+    </Box>
+  );
+};
 
-            </Stack>
-
-            <Menu open={open} anchorEl={anchorEl} handleClose={handleClose} />
-        </Box>
-    )
-}
-
-export default MenuBar
+export default MenuBar;
