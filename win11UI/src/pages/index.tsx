@@ -23,7 +23,6 @@ const Home = () => {
         sx={{
           bottom: "0px",
           position: "fixed",
-          border: "1px solid red",
         }}
       >
         <MenuBar />

@@ -60,12 +60,8 @@ const Menu = ({ open, anchorEl, handleClose }: propsOpen) => {
   const MenuContent = () => (
     <Stack
       sx={{
-        width: "94vw",
-        height: "94vh",
-        [theme.breakpoints.up("lg")]: {
-          width: 640,
-          height: 750,
-        },
+        width: "50vw",
+        height: "85vh",
       }}
     >
       {/* Apps */}
@@ -206,9 +202,6 @@ const Menu = ({ open, anchorEl, handleClose }: propsOpen) => {
           sx={{ px: { xs: 2, lg: 4 } }}
         >
           <Button
-            /*     direction="row"
-                            spacing={1}
-                            alignContent="center"  */
             sx={{
               textTransform: "inherit",
               color: "#fff",
@@ -235,6 +228,7 @@ const Menu = ({ open, anchorEl, handleClose }: propsOpen) => {
       open={open}
       anchorEl={anchorEl}
       onClose={handleClose}
+      sx={{ translate: "100px -20px" }}
       transformOrigin={{ vertical: "bottom", horizontal: "center" }}
       PaperProps={{
         style: { backgroundColor: "transparent", boxShadow: "none" },

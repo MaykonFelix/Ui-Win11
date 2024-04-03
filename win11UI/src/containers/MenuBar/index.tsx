@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { MouseEventHandler, useState } from "react";
 import { Box, Stack } from "@mui/material";
 import MenuButton from "../../components/MenuButton";
 import { menuIcon, cortanaIcon, taskbarApps } from "../../utils/apps";
@@ -21,7 +21,6 @@ const MenuBar = () => {
       sx={(theme) => ({
         width: "100vw",
         height: 30,
-        backdropFilter: "blur(2px)",
         display: "flex",
         justifyContent: "center",
       })}
